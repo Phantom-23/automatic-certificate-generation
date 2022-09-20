@@ -11,6 +11,7 @@ def set_coordinates(event,x,y,flags,param):
 
 img = cv.imread("certificate.png")
 cv.namedWindow('SETTING_COORDINATES')
+cv.resizeWindow('SETTING_COORDINATES',100,100)
 cv.setMouseCallback('SETTING_COORDINATES',set_coordinates)
 
 while(1):
@@ -20,3 +21,5 @@ while(1):
 cv.destroyAllWindows()
 
 file.close()
+
+###
