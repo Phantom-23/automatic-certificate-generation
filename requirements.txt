@@ -1,0 +1,9 @@
+pandas
+json
+smtplib
+ssl
+email
+html2text
+python-dotenv
+opencv-python
+Pillow
