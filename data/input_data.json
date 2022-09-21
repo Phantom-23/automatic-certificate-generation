@@ -1,5 +1,6 @@
 {
-    "participants_excel_file_name": "participants_sample.xlsx",
-    "email_subject": "Participation Certificate for Turing Cup",
-    "email_body": "We hope you had a good time participating in the contest\nIndeed, it was a very competitive contest and we hope you learnt new things by participating in this.\nIn order to appreciate your dedication towards CP, heres a reward for you: a participation certificate!"
+    "participants_excel_file_name": "...",
+    "email_subject": "...",
+    "email_body": "...",
+    "certificate_template_filename": "..."
 }

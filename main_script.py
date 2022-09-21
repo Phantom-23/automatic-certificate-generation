@@ -2,6 +2,7 @@ import os
 
 import input_reader
 import email_sender
+import certificate_gen
 
 current_dir = os.path.dirname(__file__)
 
@@ -13,10 +14,9 @@ def main():
     # read excel
     participants_data = input_reader.read_participants_data(participants_excel_file_name)
     participants_count = len(participants_data)
-    # TODO: generate certificates
+    # generate certificates
+    attachments = certificate_gen.generate_certificates(list(participants_data['Name']), input_data['certificate_template_filename'])
     # send emails
-    # TODO: change this attachments list
-    attachments = ['certificate_1.jpg' for i in range(participants_count)]
     participants_data = email_sender.send_emails(participants_data, attachments, input_data)
     # update the excel file
     participants_data.to_excel(participants_excel_file_path, index=False)
