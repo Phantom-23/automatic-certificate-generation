@@ -1,0 +1,4 @@
+*.env
+participants_sample.xlsx
+certificates/
+__pycache__/

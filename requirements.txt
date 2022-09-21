@@ -1,0 +1,7 @@
+pandas
+json
+smtplib
+ssl
+email
+html2text
+python-dotenv
