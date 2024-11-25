@@ -35,7 +35,7 @@ def pad_names_with_spaces(participants_data):
     for i in participants_data.index:
         name = participants_data['Name'][i]
         if len(name) < big_name_len:
-            participants_data['Name'][i] = ' ' * ((big_name_len - len(name))//2) + name + ' ' * ((big_name_len - len(name))//2)
+            participants_data['Name'][i] = ' ' * ((big_name_len - len(name))//2 + 5) + name + ' ' * ((big_name_len - len(name))//2)
     return participants_data
 
 def read_participants_data(excel_file_name):
@@ -56,6 +56,7 @@ def read_participants_data(excel_file_name):
     participants_count = len(participants_data)
     print(f'Imported Excel Sheet having {participants_count} rows')
     participants_data['Name'] = participants_data['Name'].apply(lambda x: ' '.join([y[0].upper() + y[1:] for y in x.strip().lower().split(' ')]))
+    participants_data=pad_names_with_spaces(participants_data)
     print(participants_data)
     # Check for required fields
     required_fields = ['Name', 'Email']
