@@ -22,6 +22,22 @@ def read_input_data():
     print('Input Data:', input_data)
     return input_data
 
+def find_big_name_len(participants_data):
+    big_name_len=1
+    for i in participants_data.index:
+        name = participants_data['Name'][i]
+        if len(name) > big_name_len:
+            big_name_len = len(name)
+    return big_name_len
+
+def pad_names_with_spaces(participants_data):
+    big_name_len = find_big_name_len(participants_data)
+    for i in participants_data.index:
+        name = participants_data['Name'][i]
+        if len(name) < big_name_len:
+            participants_data['Name'][i] = ' ' * ((big_name_len - len(name))//2) + name + ' ' * ((big_name_len - len(name))//2)
+    return participants_data
+
 def read_participants_data(excel_file_name):
     '''
     Input param_1: Excel File Name.
@@ -39,6 +55,7 @@ def read_participants_data(excel_file_name):
     participants_data = pd.read_excel(excel_file_path)
     participants_count = len(participants_data)
     print(f'Imported Excel Sheet having {participants_count} rows')
+    participants_data['Name'] = participants_data['Name'].apply(lambda x: ' '.join([y[0].upper() + y[1:] for y in x.strip().lower().split(' ')]))
     print(participants_data)
     # Check for required fields
     required_fields = ['Name', 'Email']
