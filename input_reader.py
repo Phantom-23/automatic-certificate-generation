@@ -10,7 +10,7 @@ def read_input_data():
     Returns: the dictionary of the JSON data.
     Raises an error if required information is not present.
     '''
-    file_path = os.path.join(current_dirname, 'data\\input_data.json')
+    file_path = os.path.join(current_dirname, 'data', 'input_data.json')
     print('Reading Input Data from:', file_path)
     input_file = open(file_path, 'r')
     input_data = json.loads(input_file.read())
@@ -50,7 +50,7 @@ def read_participants_data(excel_file_name):
     Returns: updated excel file as a pandas DataFrame.
     '''
     # import data from excel file
-    excel_file_path = os.path.join(current_dirname, 'data\\' + excel_file_name)
+    excel_file_path = os.path.join(current_dirname, 'data' , excel_file_name)
     print('Reading participants data from:', excel_file_path)
     participants_data = pd.read_excel(excel_file_path)
     participants_count = len(participants_data)

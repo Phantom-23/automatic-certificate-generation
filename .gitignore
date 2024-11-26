@@ -1,4 +1,5 @@
 *.env
 data/
-certificates/
+certificates/*.png
 __pycache__/
+myenv

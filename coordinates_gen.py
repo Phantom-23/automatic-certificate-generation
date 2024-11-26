@@ -2,7 +2,7 @@ import cv2 as cv
 import os
 
 current_dir = os.path.dirname(__file__)
-data_folder_path = os.path.join(current_dir, 'data//')
+data_folder_path = os.path.join(current_dir, 'data')
 
 def generate_coordinates(certificate_template_filename):
 

@@ -13,7 +13,7 @@ load_dotenv()
 current_dir = os.path.dirname(__file__)
 
 def get_complete_file_path(filename):
-    return os.path.join(current_dir, 'certificates\\' + filename)
+    return os.path.join(current_dir, 'certificates',filename)
 
 def read_credentials():
     '''
