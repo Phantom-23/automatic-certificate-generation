@@ -1,12 +1,116 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <style>
-            * {
-                font-family: Georgia, 'Times New Roman', Times, serif;
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('input_data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const imgElement = document.querySelector("img");
+
+                    imgElement.src = data.banner_link;
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON data:', error);
+                });
+        });
+    </script>
+    <style>
+        /* General Styles */
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header, .body, .footer {
+            padding: 20px;
+        }
+
+        .header p {
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .body p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .footer p {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer strong {
+            color: #2c3e50;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header p {
+                font-size: 1.2rem;
             }
-        </style>
-    </head>
-    <body>
+
+            .body p {
+                font-size: 0.9rem;
+            }
+
+            .footer p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .email-container {
+                border: none;
+                box-shadow: none;
+            }
+
+            .header p, .body p {
+                font-size: 1rem;
+            }
+
+            .footer p {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <img src="" alt="event banner">
         <!-- {{NAME}} placeholder is required -->
         <div class="header">
             <p>
@@ -25,5 +129,6 @@
             <p>From,</p>
             <p>The Desk of <strong>Turing Hut</strong></p>
         </div>
-    </body>
+    </div>
+</body>
 </html>
