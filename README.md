@@ -4,7 +4,7 @@
 
 > 📝 **NOTE:** Please follow the below instructions properly to avoid any errors.
 
-- Install the necessary Python packages by running `pip install -r requirements.txt` command in the command line, in the root directory.
+- Install the necessary Python packages by running `pip install -r requirements.txt` command in the command line, in the root directory. Use Python version 3 or greater else you need to run `pip install json smtplib ssl email` also.
 
 - In the root directory, create a `.env` file and add the following environment variables, which are needed for sending emails.
 ```
@@ -14,8 +14,6 @@ email_host="smtp.gmail.com"
 email_port="465"
 ```
 In the above environment variables, make sure you replace values of `email` and `email_app_password`.
-
-- Create a `certificates` folder. All the generated certificates will be stored here.
 
 - Inside the `data` folder, make sure to keep the following 2 files:
   - Participant's excel sheet (make sure it has a `.xlsx` or `.xls` extension).
@@ -27,10 +25,11 @@ In the above environment variables, make sure you replace values of `email` and 
     "participants_excel_file_name": "FILE_NAME_WITH_EXTENSION",
     "email_subject": "EMAIL_SUBJECT_GOES_HERE",
     "email_body": "EMAIL_BODY_GOES_HERE",
-    "certificate_template_filename": "TEMPLATE_FILE_NAME_WITH_PNG_EXT"
+    "certificate_template_filename": "TEMPLATE_FILE_NAME_WITH_PNG_EXT",
+    "banner_link":"LINK_TO_IMAGE_IN_EMAIL"
 }
 ```
-For the email body, seperate new lines with a `\n`. Note that in the `participants_excel_file_name` field, the filename should be the one present inside `data` folder and only specify the file name with extension, not the file path. Similar rule applies for `certificate_template_filename` field.
+For the email body, seperate new lines with a `<br/>`. Note that in the `participants_excel_file_name` field, the filename should be the one present inside `data` folder and only specify the file name with extension, not the file path. Similar rule applies for `certificate_template_filename` field.
 
 - The participants excel file must have atleast `Name` and `Email` columns. Note that these column names are *case-sensitive*.
 
@@ -40,7 +39,7 @@ For the email body, seperate new lines with a `\n`. Note that in the `participan
 
 - A window with the certificate template will appear, do the following:
   - Double click for the first time. The place where you double clicked will indicate the **top left corner** for the NAME on the certificate.
-  - Double click for the second time. The place where you double clicked will indicate the **top left corner** for the DATE on the certificate.
+  - Double click for the second time, if you want to print date on certificate. The place where you double clicked will indicate the **top left corner** for the DATE on the certificate.
   - Now, hit `ENTER`.
 
 - The script will then generate the certificates and send emails. For the first generated certificate, a new window will open to show that. Make sure you close it to continue generating the remaining certificates.
