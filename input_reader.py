@@ -55,7 +55,7 @@ def read_participants_data(excel_file_name):
     participants_data = pd.read_excel(excel_file_path)
     participants_count = len(participants_data)
     print(f'Imported Excel Sheet having {participants_count} rows')
-    participants_data['Name'] = participants_data['Name'].apply(lambda x: ' '.join([y[0].upper() + y[1:] for y in x.strip().lower().split(' ')]))
+    participants_data['Name'] = participants_data['Name'].apply(lambda x: ' '.join([y[0].upper() + y[1:] for y in x.replace('.', ' ').strip().lower().split(' ')]))
     participants_data=pad_names_with_spaces(participants_data)
     print(participants_data)
     # Check for required fields
