@@ -9,7 +9,7 @@ data_folder_path = os.path.join(current_dir, 'data')
 
 import coordinates_gen
 
-def generate_certificates(names_list, certificate_template_name , PRINT_DATE = False):
+def generate_certificates(names_list, certificate_template_name , print_date = False):
 
     certificate_template_path = os.path.join(data_folder_path, certificate_template_name)
 
@@ -20,15 +20,22 @@ def generate_certificates(names_list, certificate_template_name , PRINT_DATE = F
     coordinates_file_path = os.path.join(data_folder_path, 'coordinates.txt')
 
     f2 = open(coordinates_file_path,"r")
-    coordinates = f2.read().split("\n")
-    # print(coordinates)
+    coordinates = f2.read().split("\n")[0:2]
+
+    if print_date:
+        coordinates_gen.generate_coordinates(certificate_template_name)
+        f2 = open(coordinates_file_path,"r")
+        date_cords = f2.read().split("\n")[0:2]
+        coordinates += date_cords
+
+    print(coordinates)
 
     flag = True
     n = len(names_list)
     for i in range(n):
         name_to_print = names_list[i]
 
-        if PRINT_DATE:
+        if print_date:
             date_to_print = date.today()
             date_to_print = date_to_print.strftime("%d/%m/%Y")
 
@@ -42,13 +49,13 @@ def generate_certificates(names_list, certificate_template_name , PRINT_DATE = F
 
         font1 = ImageFont.truetype("./Fonts/Lato-Black.ttf",80)
         
-        if PRINT_DATE:
-            font2 = ImageFont.truetype("./Fonts/Lato-Black.ttf",24)
+        if print_date:
+            font2 = ImageFont.truetype("./Fonts/Lato-Black.ttf",20)
 
         # Drawing text on certifcate
 
         draw.text((int(coordinates[0]),int(coordinates[1])),name_to_print,font=font1,fill='black')
-        if PRINT_DATE:
+        if print_date:
             draw.text((int(coordinates[2]),int(coordinates[3])),date_to_print,font=font2,fill='black')
 
 

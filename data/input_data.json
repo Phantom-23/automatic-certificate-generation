@@ -1,7 +1,8 @@
 {
-    "participants_excel_file_name": "Book1.xlsx",
-    "email_subject": "Hi",
+    "participants_excel_file_name": "file_name.xlsx",
+    "email_subject": "Subject",
     "email_body": "Body",
-    "certificate_template_filename": "Finalist.png",
-    "banner_link":"https://turinghut.org/static/237081467d73540f666adb1838ef4e2d/6a113/codenox-2-0.webp"
+    "certificate_template_filename": "certificate_template.png",
+    "img_link":"https://turinghut.org/static/237081467d73540f666adb1838ef4e2d/6a113/codenox-2-0.webp",
+    "print_date": false
 }

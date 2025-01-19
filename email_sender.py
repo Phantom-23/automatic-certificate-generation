@@ -64,6 +64,7 @@ def attach_email_content(sender_email, receiver_email, receiver_name, input_data
     # replace placeholders in html
     email_html = email_html.replace('{{NAME}}', receiver_name)
     email_html = email_html.replace('{{BODY}}', input_data['email_body'])
+    email_html = email_html.replace('{{IMG_LINK}}', input_data['img_link'])
     plain_text = html2text.html2text(email_html)
 
     part1 = MIMEText(plain_text, 'text')

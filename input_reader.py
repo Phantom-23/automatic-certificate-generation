@@ -15,7 +15,7 @@ def read_input_data():
     input_file = open(file_path, 'r')
     input_data = json.loads(input_file.read())
     input_file.close()
-    required_fields = ['participants_excel_file_name', 'email_subject', 'email_body', 'certificate_template_filename']
+    required_fields = ['participants_excel_file_name', 'email_subject', 'email_body', 'certificate_template_filename','img_link']
     if not set(required_fields).issubset(set(input_data.keys())):
         print('Required Fields in Input Data JSON file:', required_fields)
         raise Exception('Input Data JSON file does not contain all required fields`')

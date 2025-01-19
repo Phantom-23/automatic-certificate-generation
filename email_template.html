@@ -2,20 +2,6 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('input_data.json')
-                .then(response => response.json())
-                .then(data => {
-                    const imgElement = document.querySelector("img");
-
-                    imgElement.src = data.banner_link;
-                })
-                .catch(error => {
-                    console.error('Error fetching JSON data:', error);
-                });
-        });
-    </script>
     <style>
         /* General Styles */
         * {
@@ -110,7 +96,7 @@
 </head>
 <body>
     <div class="email-container">
-        <img src="" alt="event banner">
+        <img src="{{IMG_LINK}}" alt="event banner">
         <!-- {{NAME}} placeholder is required -->
         <div class="header">
             <p>

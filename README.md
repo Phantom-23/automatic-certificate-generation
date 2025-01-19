@@ -8,8 +8,8 @@
 
 - In the root directory, create a `.env` file and add the following environment variables, which are needed for sending emails.
 ```
-email="USE_TURING_HUT_OFFICIAL_EMAIL"
-email_app_password="USE_APP_PASSWORD_FOR_THE_PRESENT_DEVICE"
+email="USE_YOUR_EMAIL_FOR_TESTING"
+email_app_password="USE_APP_PASSWORD"
 email_host="smtp.gmail.com"
 email_port="465"
 ```
@@ -26,7 +26,8 @@ In the above environment variables, make sure you replace values of `email` and 
     "email_subject": "EMAIL_SUBJECT_GOES_HERE",
     "email_body": "EMAIL_BODY_GOES_HERE",
     "certificate_template_filename": "TEMPLATE_FILE_NAME_WITH_PNG_EXT",
-    "banner_link":"LINK_TO_IMAGE_IN_EMAIL"
+    "img_link":"LINK_TO_IMAGE_IN_EMAIL",
+    "print_date": false
 }
 ```
 For the email body, seperate new lines with a `<br/>`. Note that in the `participants_excel_file_name` field, the filename should be the one present inside `data` folder and only specify the file name with extension, not the file path. Similar rule applies for `certificate_template_filename` field.
@@ -51,5 +52,3 @@ For the email body, seperate new lines with a `<br/>`. Note that in the `partici
 ## Steps to generate app password for gmail:
 
 - Follow this link: [Create and use app passwords](https://support.google.com/mail/answer/185833?hl=en-GB).
-
-- Note that this is a one time setup for each unique device.
